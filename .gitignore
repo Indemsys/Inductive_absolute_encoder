@@ -1,0 +1,13 @@
+**/debug/**
+**/BrowseInfo/**
+**/Obj
+**/FreeMaster/widgets/**
+**/*.vpwhist
+**/*.vtg
+**/*.hgignore
+**/.hg
+*.zip
+**/*.dep
+*.ewd
+**/.ninja_log
+**/.ninja_deps

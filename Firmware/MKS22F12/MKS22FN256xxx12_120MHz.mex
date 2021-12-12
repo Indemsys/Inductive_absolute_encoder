@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<configuration name="MKS22FN256xxx12" version="1.1" xsi:schemaLocation="http://kex.nxp.com/XSD/mex_configuration_1.1 http://kex.nxp.com/XSD/mex_configuration_1.1.xsd" uuid="0c602795-21eb-4797-8b40-810afdb14dc9" xmlns="http://kex.nxp.com/XSD/mex_configuration_1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <common>
+      <processor>MKS22FN256xxx12</processor>
+      <package>MKS22FN256VLL12</package>
+      <board></board>
+      <mcu_data>ksdk2_0</mcu_data>
+      <cores>
+         <core name="Core #1" id="core1" description=""/>
+      </cores>
+      <description></description>
+   </common>
+   <tools>
+      <pins name="Pins" version="2.0">
+         <pins_profile>
+            <processor_version>1.0.1</processor_version>
+         </pins_profile>
+         <functions_list>
+            <function name="BOARD_InitPins">
+               <description>Configures pin routing and optionally pin electrical features.&amp;lt;br/&amp;gt;</description>
+               <options>
+                  <coreID>singlecore</coreID>
+                  <enableClock>true</enableClock>
+               </options>
+               <pins/>
+            </function>
+         </functions_list>
+      </pins>
+      <clocks name="Clocks" version="1.0">
+         <clocks_profile>
+            <processor_version>1.0.1</processor_version>
+         </clocks_profile>
+         <clock_configurations>
+            <clock_configuration name="BOARD_BootClockRUN">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="PinSignal" resourceId="OSC.EXTAL0" description="&apos;EXTAL0&apos; (Pins tool id: OSC.EXTAL0, Clocks tool id: OSC.EXTAL0) needs to be routed" problem_level="1" source="Clocks: BOARD_BootClockRUN">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="OSC.XTAL0" description="&apos;XTAL0&apos; (Pins tool id: OSC.XTAL0, Clocks tool id: OSC.XTAL0) needs to be routed" problem_level="1" source="Clocks: BOARD_BootClockRUN">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="USB0.CLKIN" description="&apos;USB clock input&apos; (Pins tool id: USB0.CLKIN, Clocks tool id: SIM.USB_CLKIN) needs to be routed" problem_level="1" source="Clocks: BOARD_BootClockRUN">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources>
+                  <clock_source id="OSC.OSC.outFreq" value="16 MHz" locked="false" enabled="true"/>
+                  <clock_source id="SIM.USBCLK_EXT.outFreq" value="48 MHz" locked="false" enabled="true"/>
+               </clock_sources>
+               <clock_outputs>
+                  <clock_output id="Bus_clock.outFreq" value="60 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CLKOUT.outFreq" value="16 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Core_clock.outFreq" value="120 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FLEXIOCLK.outFreq" value="120 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Flash_clock.outFreq" value="24 MHz" locked="false" accuracy=""/>
+                  <clock_output id="LPO_clock.outFreq" value="1 kHz" locked="false" accuracy=""/>
+                  <clock_output id="LPUARTCLK.outFreq" value="120 MHz" locked="false" accuracy=""/>
+                  <clock_output id="MCGIRCLK.outFreq" value="4 MHz" locked="false" accuracy=""/>
+                  <clock_output id="OSCERCLK.outFreq" value="16 MHz" locked="false" accuracy=""/>
+                  <clock_output id="OSCERCLK_UNDIV.outFreq" value="16 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PLLFLLCLK.outFreq" value="120 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="120 MHz" locked="false" accuracy=""/>
+                  <clock_output id="TPMCLK.outFreq" value="60 MHz" locked="false" accuracy=""/>
+                  <clock_output id="TRACECLKIN.outFreq" value="120 MHz" locked="false" accuracy=""/>
+                  <clock_output id="USB48MCLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="MCGMode" value="PEE" locked="false"/>
+                  <setting id="powerMode" value="HSRUN" locked="false"/>
+                  <setting id="CLKOUTConfig" value="yes" locked="false"/>
+                  <setting id="FLEXIOClkConfig" value="FlexIO" locked="false"/>
+                  <setting id="LPUARTClkConfig" value="yes" locked="false"/>
+                  <setting id="MCG.FCRDIV.scale" value="1" locked="false"/>
+                  <setting id="MCG.FRDIV.scale" value="512" locked="false"/>
+                  <setting id="MCG.IRCS.sel" value="MCG.FCRDIV" locked="false"/>
+                  <setting id="MCG.IREFS.sel" value="MCG.FRDIV" locked="false"/>
+                  <setting id="MCG.PLLS.sel" value="MCG.PLL" locked="false"/>
+                  <setting id="MCG.PRDIV.scale" value="4" locked="false"/>
+                  <setting id="MCG.VDIV.scale" value="30" locked="false"/>
+                  <setting id="MCG_C1_IRCLKEN_CFG" value="Enabled" locked="false"/>
+                  <setting id="MCG_C2_OSC_MODE_CFG" value="ModeOscLowPower" locked="false"/>
+                  <setting id="MCG_C2_RANGE0_CFG" value="Very_high" locked="false"/>
+                  <setting id="MCG_C2_RANGE0_FRDIV_CFG" value="Very_high" locked="false"/>
+                  <setting id="MCG_C5_PLLCLKEN0_CFG" value="Enabled" locked="false"/>
+                  <setting id="OSC_CR_ERCLKEN_CFG" value="Enabled" locked="false"/>
+                  <setting id="OSC_CR_ERCLKEN_UNDIV_CFG" value="Enabled" locked="false"/>
+                  <setting id="SIM.CLKOUTSEL.sel" value="OSC.OSCERCLK" locked="false"/>
+                  <setting id="SIM.LPUARTSRCSEL.sel" value="SIM.PLLFLLSEL" locked="false"/>
+                  <setting id="SIM.OUTDIV2.scale" value="2" locked="false"/>
+                  <setting id="SIM.OUTDIV4.scale" value="5" locked="false"/>
+                  <setting id="SIM.PLLFLLDIV.scale" value="2" locked="false"/>
+                  <setting id="SIM.PLLFLLSEL.sel" value="MCG.MCGPLLCLK" locked="false"/>
+                  <setting id="SIM.TPMSRCSEL.sel" value="SIM.PLLFLLDIV" locked="false"/>
+                  <setting id="SIM.USBDIV.scale" value="5" locked="false"/>
+                  <setting id="SIM.USBFRAC.scale" value="2" locked="false"/>
+                  <setting id="SIM.USBSRCSEL.sel" value="SIM.USBDIV" locked="false"/>
+                  <setting id="TPMClkConfig" value="yes" locked="false"/>
+                  <setting id="TraceClkConfig" value="yes" locked="false"/>
+                  <setting id="USBClkConfig" value="yes" locked="false"/>
+               </clock_settings>
+            </clock_configuration>
+         </clock_configurations>
+      </clocks>
+   </tools>
+</configuration>

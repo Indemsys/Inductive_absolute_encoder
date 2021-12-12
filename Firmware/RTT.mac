@@ -1,0 +1,7 @@
+Set_RTT_Address () {
+  __var addr;
+  __var str;
+  addr = &_SEGGER_RTT;
+  str = __smessage "SetRTTAddr ",addr:%x;
+  __jlinkExecCommand(str);
+}

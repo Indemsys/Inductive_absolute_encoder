@@ -1,0 +1,377 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="Other C/C++"
+    WorkingDir=".">
+    <Config
+        Name="Debug"
+        Type="cpp"
+        DebugCallbackName="gdb"
+        OutputFile="%bdANSINv01"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                CaptureOutputWith="ProcessBuffer"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='cc -c -g %i %defd -o "%bd%n.o" "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link">
+                <Exec CmdLine='cc -g -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" build "%w" "%r"'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" rebuild "%w" "%r"'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                SaveOption="SaveNone"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                SaveOption="SaveNone"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+        </Menu>
+    </Config>
+    <Config
+        Name="Release"
+        Type="cpp"
+        DebugCallbackName="gdb"
+        OutputFile="%bdANSINv01"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveCurrent"
+                OutputExts="*.o"
+                RunFromDir="%rw">
+                <Exec CmdLine='cc -c -O %i %defd -o "%bd%n.o" "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link">
+                <Exec CmdLine='cc -O -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" build "%w" "%r"'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" rebuild "%w" "%r"'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                SaveOption="SaveNone"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                SaveOption="SaveNone"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+        </Menu>
+    </Config>
+    <Rules Name="Compile">
+        <Rule
+            InputExts="*.s"
+            OutputExts="*.o"
+            LinkObject="1">
+            <Exec CmdLine='as -o "%bd%n.o" "%f"'/>
+        </Rule>
+    </Rules>
+    <CustomFolders>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go"
+            GUID="{F93F8F5C-7FFB-402F-5AA6-FD27A26F1087}"></Folder>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if"
+            GUID="{AD4BAD7F-27C2-4B92-730F-53242FDBEEB2}"></Folder>
+        <Folder
+            Name="Resource Files"
+            Filters="*.ico;*.cur;*.dlg"
+            GUID="{D9EEE9FE-40A1-488E-213A-9AB1406F18B7}"/>
+        <Folder
+            Name="Bitmaps"
+            Filters="*.bmp"
+            GUID="{8E807511-FCC3-4A4E-0A67-59B4DDD7FEA9}"/>
+        <Folder
+            Name="Other Files"
+            Filters=""
+            GUID="{DE9B8A58-2F48-498E-50B7-38275771A885}"></Folder>
+    </CustomFolders>
+    <Files AutoFolders="DirectoryView">
+        <Folder Name="../App">
+            <Folder Name="USB">
+                <Folder Name="CDC">
+                    <F N="../App/USB/CDC/usb_composite_dev.c"/>
+                    <F N="../App/USB/CDC/usb_composite_dev.h"/>
+                    <F N="../App/USB/CDC/usb_device_cdc_acm.c"/>
+                    <F N="../App/USB/CDC/usb_device_cdc_acm.h"/>
+                    <F N="../App/USB/CDC/usb_device_config.h"/>
+                    <F N="../App/USB/CDC/usb_device_descriptor.c"/>
+                    <F N="../App/USB/CDC/usb_device_descriptor.h"/>
+                    <F N="../App/USB/CDC/usb_virtual_com1.c"/>
+                    <F N="../App/USB/CDC/usb_virtual_com1.h"/>
+                    <F N="../App/USB/CDC/usb_virtual_com2.c"/>
+                    <F N="../App/USB/CDC/usb_virtual_com2.h"/>
+                </Folder>
+                <F N="../App/USB/usb_device_ch9.c"/>
+                <F N="../App/USB/usb_device_ch9.c"/>
+                <F N="../App/USB/usb_device_ch9.h"/>
+                <F N="../App/USB/usb_device_ch9.h"/>
+                <F N="../App/USB/usb_device_class.c"/>
+                <F N="../App/USB/usb_device_class.c"/>
+                <F N="../App/USB/usb_device_class.h"/>
+                <F N="../App/USB/usb_device_class.h"/>
+            </Folder>
+            <F N="../App/ANSIN_task.c"/>
+            <F N="../App/ANSIN_task.h"/>
+            <F N="../App/ANSMA_task.c"/>
+            <F N="../App/ANSMA_task.h"/>
+            <F N="../App/App.h"/>
+            <F N="../App/App.h"/>
+            <F N="../App/cpu_cfg.h"/>
+            <F N="../App/CRC_utils.c"/>
+            <F N="../App/CRC_utils.h"/>
+            <F N="../App/FreeMaster_vars.c"/>
+            <F N="../App/Host_channel.c"/>
+            <F N="../App/Host_channel.h"/>
+            <F N="../App/LED_control.c"/>
+            <F N="../App/LED_control.h"/>
+            <F N="../App/Main.c"/>
+            <F N="../App/Main.c"/>
+            <F N="../App/Mesurements.c"/>
+            <F N="../App/Mesurements.h"/>
+            <F N="../App/os_cfg.h"/>
+            <F N="../App/os_cfg_app.h"/>
+            <F N="../App/OS_misc.c"/>
+            <F N="../App/OS_misc.h"/>
+        </Folder>
+        <Folder Name="../BSP">
+            <F N="../BSP/ANSIN01_ADC.c"/>
+            <F N="../BSP/ANSIN01_ADC.h"/>
+            <F N="../BSP/ANSIN01_DMA.c"/>
+            <F N="../BSP/ANSIN01_DMA.h"/>
+            <F N="../BSP/ANSIN01_Flash.c"/>
+            <F N="../BSP/ANSIN01_Flash.h"/>
+            <F N="../BSP/ANSIN01_INIT_SYS.c"/>
+            <F N="../BSP/ANSIN01_INIT_SYS.c"/>
+            <F N="../BSP/ANSIN01_INIT_SYS.h"/>
+            <F N="../BSP/ANSIN01_INIT_SYS.h"/>
+            <F N="../BSP/ANSIN01_LDC1101.c"/>
+            <F N="../BSP/ANSIN01_LDC1101.h"/>
+            <F N="../BSP/ANSIN01_Pins.c"/>
+            <F N="../BSP/ANSIN01_Pins.c"/>
+            <F N="../BSP/ANSIN01_pins.h"/>
+            <F N="../BSP/ANSIN01_pins.h"/>
+            <F N="../BSP/ANSIN01_PIT.c"/>
+            <F N="../BSP/ANSIN01_PIT.c"/>
+            <F N="../BSP/ANSIN01_PIT.h"/>
+            <F N="../BSP/ANSIN01_PIT.h"/>
+            <F N="../BSP/ANSIN01_SPI.c"/>
+            <F N="../BSP/ANSIN01_SPI.h"/>
+            <F N="../BSP/ANSIN01_SPI_HOST.c"/>
+            <F N="../BSP/ANSIN01_SPI_HOST.h"/>
+            <F N="../BSP/ANSMA01_pins.h"/>
+            <F N="../BSP/BSP.h"/>
+            <F N="../BSP/BSP.h"/>
+        </Folder>
+        <Folder Name="../Drivers">
+            <F N="../Drivers/fsl_clock.c"/>
+            <F N="../Drivers/fsl_clock.c"/>
+            <F N="../Drivers/fsl_clock.h"/>
+            <F N="../Drivers/fsl_clock.h"/>
+            <F N="../Drivers/fsl_common.c"/>
+            <F N="../Drivers/fsl_common.c"/>
+            <F N="../Drivers/fsl_common.h"/>
+            <F N="../Drivers/fsl_common.h"/>
+            <F N="../Drivers/fsl_device_registers.h"/>
+            <F N="../Drivers/fsl_device_registers.h"/>
+            <F N="../Drivers/fsl_gpio.c"/>
+            <F N="../Drivers/fsl_gpio.h"/>
+            <F N="../Drivers/fsl_lpuart.c"/>
+            <F N="../Drivers/fsl_lpuart.h"/>
+            <F N="../Drivers/fsl_port.h"/>
+            <F N="../Drivers/fsl_sim.c"/>
+            <F N="../Drivers/fsl_sim.h"/>
+            <F N="../Drivers/fsl_smc.c"/>
+            <F N="../Drivers/fsl_smc.c"/>
+            <F N="../Drivers/fsl_smc.h"/>
+            <F N="../Drivers/fsl_smc.h"/>
+            <F N="../Drivers/fsl_uart.c"/>
+            <F N="../Drivers/fsl_uart.h"/>
+        </Folder>
+        <Folder Name="../FreeMaster">
+            <F N="../FreeMaster/freemaster.h"/>
+            <F N="../FreeMaster/freemaster_appcmd.c"/>
+            <F N="../FreeMaster/freemaster_cfg.h"/>
+            <F N="../FreeMaster/freemaster_defcfg.h"/>
+            <F N="../FreeMaster/freemaster_os.c"/>
+            <F N="../FreeMaster/freemaster_os.h"/>
+            <F N="../FreeMaster/freemaster_private.h"/>
+            <F N="../FreeMaster/freemaster_protocol.c"/>
+            <F N="../FreeMaster/freemaster_protocol.h"/>
+            <F N="../FreeMaster/freemaster_rec.c"/>
+            <F N="../FreeMaster/freemaster_rec.h"/>
+            <F N="../FreeMaster/freemaster_scope.c"/>
+            <F N="../FreeMaster/freemaster_serial.c"/>
+            <F N="../FreeMaster/freemaster_sfio.c"/>
+            <F N="../FreeMaster/freemaster_tsa.c"/>
+            <F N="../FreeMaster/freemaster_tsa.h"/>
+            <F N="../FreeMaster/Task_FreeMaster.c"/>
+            <F N="../FreeMaster/Task_FreeMaster.h"/>
+        </Folder>
+        <Folder Name="../MKS22F12">
+            <F N="../MKS22F12/clock_config.c"/>
+            <F N="../MKS22F12/clock_config.c"/>
+            <F N="../MKS22F12/clock_config.h"/>
+            <F N="../MKS22F12/clock_config.h"/>
+            <F N="../MKS22F12/MKS22F12.h"/>
+            <F N="../MKS22F12/MKS22F12.h"/>
+            <F N="../MKS22F12/MKS22F12_features.h"/>
+            <F N="../MKS22F12/MKS22F12_features.h"/>
+            <F N="../MKS22F12/MKS22FN256xxx12_flash.icf"/>
+            <F N="../MKS22F12/startup_MKS22F12.s"/>
+            <F N="../MKS22F12/startup_MKS22F12.s"/>
+            <F N="../MKS22F12/system_MKS22F12.c"/>
+            <F N="../MKS22F12/system_MKS22F12.c"/>
+            <F N="../MKS22F12/system_MKS22F12.h"/>
+            <F N="../MKS22F12/system_MKS22F12.h"/>
+        </Folder>
+        <Folder Name="../RTOS">
+            <Folder Name="uC-CPU">
+                <F N="../RTOS/uC-CPU/cpu.h"/>
+                <F N="../RTOS/uC-CPU/cpu_a.asm"/>
+                <F N="../RTOS/uC-CPU/cpu_c.c"/>
+                <F N="../RTOS/uC-CPU/cpu_cache.h"/>
+                <F N="../RTOS/uC-CPU/cpu_core.c"/>
+                <F N="../RTOS/uC-CPU/cpu_core.h"/>
+                <F N="../RTOS/uC-CPU/cpu_def.h"/>
+            </Folder>
+            <Folder Name="uC-LIB">
+                <F N="../RTOS/uC-LIB/lib_ascii.c"/>
+                <F N="../RTOS/uC-LIB/lib_ascii.h"/>
+                <F N="../RTOS/uC-LIB/lib_cfg.h"/>
+                <F N="../RTOS/uC-LIB/lib_def.h"/>
+                <F N="../RTOS/uC-LIB/lib_math.c"/>
+                <F N="../RTOS/uC-LIB/lib_math.h"/>
+                <F N="../RTOS/uC-LIB/lib_mem.c"/>
+                <F N="../RTOS/uC-LIB/lib_mem.h"/>
+                <F N="../RTOS/uC-LIB/lib_mem_a.asm"/>
+                <F N="../RTOS/uC-LIB/lib_str.c"/>
+                <F N="../RTOS/uC-LIB/lib_str.h"/>
+            </Folder>
+            <Folder Name="uCOS-III">
+                <Folder Name="Port">
+                    <F N="../RTOS/uCOS-III/Port/os_cpu.h"/>
+                    <F N="../RTOS/uCOS-III/Port/os_cpu_a.asm"/>
+                    <F N="../RTOS/uCOS-III/Port/os_cpu_c.c"/>
+                </Folder>
+                <F N="../RTOS/uCOS-III/os.h"/>
+                <F N="../RTOS/uCOS-III/os_cfg_app.c"/>
+                <F N="../RTOS/uCOS-III/os_core.c"/>
+                <F N="../RTOS/uCOS-III/os_dbg.c"/>
+                <F N="../RTOS/uCOS-III/os_flag.c"/>
+                <F N="../RTOS/uCOS-III/os_int.c"/>
+                <F N="../RTOS/uCOS-III/os_mem.c"/>
+                <F N="../RTOS/uCOS-III/os_mon.c"/>
+                <F N="../RTOS/uCOS-III/os_msg.c"/>
+                <F N="../RTOS/uCOS-III/os_mutex.c"/>
+                <F N="../RTOS/uCOS-III/os_pend_multi.c"/>
+                <F N="../RTOS/uCOS-III/os_prio.c"/>
+                <F N="../RTOS/uCOS-III/os_q.c"/>
+                <F N="../RTOS/uCOS-III/os_sem.c"/>
+                <F N="../RTOS/uCOS-III/os_stat.c"/>
+                <F N="../RTOS/uCOS-III/os_task.c"/>
+                <F N="../RTOS/uCOS-III/os_tick.c"/>
+                <F N="../RTOS/uCOS-III/os_time.c"/>
+                <F N="../RTOS/uCOS-III/os_tmr.c"/>
+                <F N="../RTOS/uCOS-III/os_type.h"/>
+                <F N="../RTOS/uCOS-III/os_var.c"/>
+            </Folder>
+        </Folder>
+        <Folder Name="../RTT">
+            <F N="../RTT/Debug_io.c"/>
+            <F N="../RTT/Debug_io.h"/>
+            <F N="../RTT/SEGGER_RTT.c"/>
+            <F N="../RTT/SEGGER_RTT.h"/>
+            <F N="../RTT/SEGGER_RTT_Conf.h"/>
+            <F N="../RTT/SEGGER_RTT_printf.c"/>
+        </Folder>
+        <Folder Name="../USB">
+            <Folder Name="Device">
+                <F N="../USB/Device/usb_device.h"/>
+                <F N="../USB/Device/usb_device_dci.c"/>
+                <F N="../USB/Device/usb_device_dci.h"/>
+                <F N="../USB/Device/usb_device_khci.c"/>
+                <F N="../USB/Device/usb_device_khci.h"/>
+            </Folder>
+            <Folder Name="OSA">
+                <F N="../USB/OSA/usb_osa.h"/>
+                <F N="../USB/OSA/usb_osa_ucosiii.c"/>
+                <F N="../USB/OSA/usb_osa_ucosiii.h"/>
+            </Folder>
+            <F N="../USB/usb.h"/>
+            <F N="../USB/usb_khci.h"/>
+            <F N="../USB/usb_misc.h"/>
+            <F N="../USB/usb_spec.h"/>
+        </Folder>
+        <Folder Name="../VT100">
+            <F N="../VT100/Monitor_LDC1101.c"/>
+            <F N="../VT100/Monitor_LDC1101.h"/>
+            <F N="../VT100/Monitor_usb_drv.c"/>
+            <F N="../VT100/Monitor_usb_drv.h"/>
+            <F N="../VT100/MonitorVT100.c"/>
+            <F N="../VT100/MonitorVT100.h"/>
+        </Folder>
+    </Files>
+</Project>
